@@ -15,6 +15,7 @@
 	   #:problem-instance-dimension
 	   #:problem-instance-edge-weight-type
 	   #:problem-instance-nodes-coordinates
-	   #:problem-instance-distance-matrix))
+	   #:problem-instance-distance-matrix
+	   #:list-nearest-neighbors))
 
 
