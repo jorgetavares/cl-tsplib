@@ -5,6 +5,18 @@
 (in-package #:cl-tsplib)
 
 ;;;
+;;; constants
+;;;
+
+(defparameter *eil51*   "/Users/jast/workspace/datasets/tsplib/tsp/eil51.tsp")
+(defparameter *burma14* "/Users/jast/workspace/datasets/tsplib/tsp/burma14.tsp")
+(defparameter *kroA100* "/Users/jast/workspace/datasets/tsplib/tsp/kroA100.tsp")
+(defparameter *d198*    "/Users/jast/workspace/datasets/tsplib/tsp/d198.tsp")
+(defparameter *lin318*  "/Users/jast/workspace/datasets/tsplib/tsp/lin318.tsp")
+(defparameter *pcb442*  "/Users/jast/workspace/datasets/tsplib/tsp/pcb442.tsp")
+
+
+;;;
 ;;; definitions
 ;;;
 

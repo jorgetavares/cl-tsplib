@@ -16,6 +16,12 @@
 	   #:problem-instance-edge-weight-type
 	   #:problem-instance-nodes-coordinates
 	   #:problem-instance-distance-matrix
-	   #:list-nearest-neighbors))
+	   #:list-nearest-neighbors
+	   #:*eil51*
+	   #:*burma14*
+	   #:*kroA100*
+	   #:*d198*
+	   #:*lin198*
+	   #:*pcb442*))
 
 
