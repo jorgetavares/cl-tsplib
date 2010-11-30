@@ -14,6 +14,8 @@
 (defparameter *d198*    "/Users/jast/workspace/datasets/tsplib/tsp/d198.tsp")
 (defparameter *lin318*  "/Users/jast/workspace/datasets/tsplib/tsp/lin318.tsp")
 (defparameter *pcb442*  "/Users/jast/workspace/datasets/tsplib/tsp/pcb442.tsp")
+(defparameter *att532*  "/Users/jast/workspace/datasets/tsplib/tsp/att532.tsp")
+
 
 
 ;;;
@@ -126,7 +128,8 @@
 
 (defparameter *edge-type* "EDGE_WEIGHT_TYPE")
 (defparameter *edge-weight-types* (list (cons "EUC_2D" :euc-2d) 
-					(cons "GEO" :geo)))
+					(cons "GEO" :geo)
+					(cons "ATT" :att)))
 
 (defun edge-type-p (line)
   (string= *edge-type* line :end2 16))
@@ -227,7 +230,8 @@
   "Returns the correct distance function according to type."
   (case type
     (:euc-2d #'euclidian-distance)
-    (:geo #'geo-distance)))
+    (:geo #'geo-distance)
+    (:att #'pseudo-euclidean-distance)))
 
 (defun nearest-integer (n)
   "Rouding function. Returns the nearest integer."
@@ -263,6 +267,14 @@
     (values (/ (* tsplib-pi (+ degx (/ (* 5 minx) 3))) 180)    ; latitude
 	    (/ (* tsplib-pi (+ degy (/ (* 5 miny) 3))) 180)))) ; longitude
 
+(defun pseudo-euclidean-distance (xi xj yi yj)
+  "Euclidian 2D/3D distance function."
+  (let* ((xd (- xi xj)) (yd (- yi yj))
+	 (rij (sqrt (/ (+ (* xd xd) (* yd yd)) 10)))
+	 (tij (nearest-integer rij)))
+    (if (< tij rij)
+	(1+ tij)
+	tij)))
 
 
 ;;;

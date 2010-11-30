@@ -7,6 +7,8 @@
   (:export #:print-problem-instance 
 	   #:parse-problem-instance
 	   #:euclidian-distance
+	   #:pseudo-euclidian-distance
+	   #:geo-distance
 	   #:problem-instance
 	   #:make-problem-instance
 	   #:problem-instance-name
@@ -21,7 +23,8 @@
 	   #:*burma14*
 	   #:*kroA100*
 	   #:*d198*
-	   #:*lin198*
-	   #:*pcb442*))
+	   #:*lin318*
+	   #:*pcb442*
+	   #:*att532*))
 
 
