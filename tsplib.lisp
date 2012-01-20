@@ -9,36 +9,40 @@
 ;;;
 
 ;; euc_2d
-(defparameter *eil51*    "/Users/jast/workspace/ecos/datasets/tsplib/tsp/eil51.tsp")
-(defparameter *burma14*  "/Users/jast/workspace/ecos/datasets/tsplib/tsp/burma14.tsp")
-(defparameter *kroA100*  "/Users/jast/workspace/ecos/datasets/tsplib/tsp/kroA100.tsp")
-(defparameter *d198*     "/Users/jast/workspace/ecos/datasets/tsplib/tsp/d198.tsp")
-(defparameter *lin318*   "/Users/jast/workspace/ecos/datasets/tsplib/tsp/lin318.tsp")
-(defparameter *pcb442*   "/Users/jast/workspace/ecos/datasets/tsplib/tsp/pcb442.tsp")
-(defparameter *berlin52* "/Users/jast/workspace/ecos/datasets/tsplib/tsp/berlin52.tsp")
+(defparameter *eil51*     "/Users/jast/workspace/ecos/datasets/tsplib/instances/eil51.tsp")
+(defparameter *burma14*   "/Users/jast/workspace/ecos/datasets/tsplib/instances/burma14.tsp")
+(defparameter *kroA100*   "/Users/jast/workspace/ecos/datasets/tsplib/instances/kroA100.tsp")
+(defparameter *d198*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/d198.tsp")
+(defparameter *lin318*    "/Users/jast/workspace/ecos/datasets/tsplib/instances/lin318.tsp")
+(defparameter *pcb442*    "/Users/jast/workspace/ecos/datasets/tsplib/instances/pcb442.tsp")
+(defparameter *berlin52*  "/Users/jast/workspace/ecos/datasets/tsplib/instances/berlin52.tsp")
 
 ;; att
-(defparameter *att532*    "/Users/jast/workspace/ecos/datasets/tsplib/tsp/att532.tsp")
+(defparameter *att532*    "/Users/jast/workspace/ecos/datasets/tsplib/instances/att532.tsp")
 
 ;; geo
-(defparameter *ulysses16* "/Users/jast/workspace/ecos/datasets/tsplib/tsp/ulysses16.tsp")
-(defparameter *ulysses22* "/Users/jast/workspace/ecos/datasets/tsplib/tsp/ulysses22.tsp")
+(defparameter *ulysses16* "/Users/jast/workspace/ecos/datasets/tsplib/instances/ulysses16.tsp")
+(defparameter *ulysses22* "/Users/jast/workspace/ecos/datasets/tsplib/instances/ulysses22.tsp")
 
 ;; explicit
 ; lower-diag-row
-(defparameter *fri26*     "/Users/jast/workspace/ecos/datasets/tsplib/tsp/fri26.tsp")
-(defparameter *gr17*      "/Users/jast/workspace/ecos/datasets/tsplib/tsp/gr17.tsp")
-(defparameter *gr21*      "/Users/jast/workspace/ecos/datasets/tsplib/tsp/gr21.tsp")
-(defparameter *gr24*      "/Users/jast/workspace/ecos/datasets/tsplib/tsp/gr24.tsp")
-(defparameter *gr48*      "/Users/jast/workspace/ecos/datasets/tsplib/tsp/gr48.tsp")
-(defparameter *hk48*      "/Users/jast/workspace/ecos/datasets/tsplib/tsp/hk48.tsp")
-(defparameter *dantzig42* "/Users/jast/workspace/ecos/datasets/tsplib/tsp/dantzig42.tsp")
+(defparameter *fri26*     "/Users/jast/workspace/ecos/datasets/tsplib/instances/fri26.tsp")
+(defparameter *gr17*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/gr17.tsp")
+(defparameter *gr21*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/gr21.tsp")
+(defparameter *gr24*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/gr24.tsp")
+(defparameter *gr48*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/gr48.tsp")
+(defparameter *hk48*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/hk48.tsp")
+(defparameter *dantzig42* "/Users/jast/workspace/ecos/datasets/tsplib/instances/dantzig42.tsp")
 ; full matrix
-(defparameter *swiss42* "/Users/jast/workspace/ecos/datasets/tsplib/tsp/swiss42.tsp")
-(defparameter *bays29*  "/Users/jast/workspace/ecos/datasets/tsplib/tsp/bays29.tsp")
+(defparameter *swiss42*   "/Users/jast/workspace/ecos/datasets/tsplib/instances/swiss42.tsp")
+(defparameter *bays29*    "/Users/jast/workspace/ecos/datasets/tsplib/instances/bays29.tsp")
 ; upper row
-(defparameter *bayg29* "/Users/jast/workspace/ecos/datasets/tsplib/tsp/bayg29.tsp")
+(defparameter *bayg29*    "/Users/jast/workspace/ecos/datasets/tsplib/instances/bayg29.tsp")
 
+;; ATSP
+(defparameter *ft70*      "/Users/jast/workspace/ecos/datasets/tsplib/instances/ft70.atsp")
+(defparameter *kro124p*   "/Users/jast/workspace/ecos/datasets/tsplib/instances/kro124p.atsp")
+(defparameter *ftv170*    "/Users/jast/workspace/ecos/datasets/tsplib/instances/ftv170.atsp")
 
 
 ;;;
@@ -138,7 +142,8 @@
 	(filter-start (subseq line (mismatch *comment* line)))))
 
 (defparameter *type* "TYPE")
-(defparameter *instance-types* (cons (cons "TSP" :tsp) '()))
+(defparameter *instance-types* (list (cons "TSP" :tsp)
+				     (cons "ATSP" :atsp)))
 
 (defun type-p (line)
   (string= *type* line :end2 4))
